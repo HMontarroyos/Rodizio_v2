@@ -78,19 +78,22 @@ app.post('/car', (req, resp)=> {
 
 // FILTER 
 
-let car = cars.filter((getCar) => {
-    return getCar.placa === cars[getCar].placa && getCar.renavam === cars[getCar].renavam;
-    
-  })
+ const placa = req.body.placa
+const renavam = req.body.renavam
 
 
-  resp.send(car)
-  console.log('RESULT :', car)
+var getCar = cars.filter(function(car) {
+  return car.placa === placa && car.renavam === renavam;
+});
 
-
-
+  resp.send(getCar)
+  console.log('RESULT :', getCar)
 
 });
+
+
+//MAP
+
 
 app.listen(PORT, function(){
     console.log(`Servidor Rodando na Porta ${PORT}`)
