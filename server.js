@@ -54,6 +54,11 @@ app.post('/car', (req, resp)=> {
         ]
        }]
       
+
+       // FOR 
+
+       /*
+
        const getCar = () =>{
 
        const placa = req.body.placa
@@ -67,10 +72,24 @@ app.post('/car', (req, resp)=> {
 
     }
 
-
     resp.send(getCar())
-
     console.log('RESULT :', getCar())
+*/
+
+// FILTER 
+
+let car = cars.filter((getCar) => {
+    return getCar.placa === cars[getCar].placa && getCar.renavam === cars[getCar].renavam;
+    
+  })
+
+
+  resp.send(car)
+  console.log('RESULT :', car)
+
+
+
+
 });
 
 app.listen(PORT, function(){
