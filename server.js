@@ -6,7 +6,7 @@ const PORT = 5000;
 app.use(bodyParser.json())
 
 app.post('/car', (req, resp)=> {
-    console.log('REQUEST BODY: ', req.body.placa)
+    //console.log('REQUEST BODY: ', req.body.placa)
 
     req.body
 
@@ -53,13 +53,24 @@ app.post('/car', (req, resp)=> {
          }
         ]
        }]
-       var found
+      
+       const getCar = () =>{
+
        const placa = req.body.placa
        const renavam = req.body.renavam
 
-       // passar um for para fazer um loop 
-       // e um if que pegue todos o array 
-    resp.send(found)
+       for (let index = 0; index < cars.length; index ++){
+        if((placa === cars[index].placa )&&(renavam === cars[index].renavam)){
+            return cars[index]
+        }
+      }
+
+    }
+
+
+    resp.send(getCar())
+
+    console.log('RESULT :', getCar())
 });
 
 app.listen(PORT, function(){
