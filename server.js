@@ -54,15 +54,11 @@ app.post('/car', (req, resp)=> {
         ]
        }]
       
-
-       // FOR 
-
-       /*
-
-       const getCar = () =>{
-
        const placa = req.body.placa
        const renavam = req.body.renavam
+       
+       // FOR
+       const getCarFor = () =>{
 
        for (let index = 0; index < cars.length; index ++){
         if((placa === cars[index].placa )&&(renavam === cars[index].renavam)){
@@ -71,18 +67,48 @@ app.post('/car', (req, resp)=> {
       }
 
     }
-
-    resp.send(getCar())
-    console.log('RESULT :', getCar())
-*/
-
+       
 // FILTER 
 
- const placa = req.body.placa
+const getCarFilter =() =>{
+  return cars.filter(car => car.placa === placa && car.renavam === renavam)[0]
+}
+
+// FOR EACH 
+
+const getCarForEach = () => {
+  result = []
+  cars.forEach(car => {
+    if (car.placa === placa && car.renavam === renavam){
+      result.push(car)[0]
+    }
+  })
+  return result
+}
+
+
+
+
+
+
+
+
+
+    resp.send(getCarFilter())
+    console.log('RESULT :', getCarFilter())
+
+  });
+  
+
+
+
+//MAP
+/*
+const placa = req.body.placa
 const renavam = req.body.renavam
 
 
-var getCar = cars.filter(function(car) {
+var getCar = cars.map(function(car) {
   return car.placa === placa && car.renavam === renavam;
 });
 
@@ -90,10 +116,7 @@ var getCar = cars.filter(function(car) {
   console.log('RESULT :', getCar)
 
 });
-
-
-//MAP
-
+*/
 
 app.listen(PORT, function(){
     console.log(`Servidor Rodando na Porta ${PORT}`)
