@@ -86,38 +86,11 @@ const getCarForEach = () => {
   return result
 }
 
-
-
-
-
-
-
-
-
-    resp.send(getCarFilter())
-    console.log('RESULT :', getCarFilter())
+    resp.send(getCarMap())
+    console.log('RESULT :', getCarMap())
 
   });
   
-
-
-
-//MAP
-/*
-const placa = req.body.placa
-const renavam = req.body.renavam
-
-
-var getCar = cars.map(function(car) {
-  return car.placa === placa && car.renavam === renavam;
-});
-
-  resp.send(getCar)
-  console.log('RESULT :', getCar)
-
-});
-*/
-
 app.listen(PORT, function(){
     console.log(`Servidor Rodando na Porta ${PORT}`)
 });
