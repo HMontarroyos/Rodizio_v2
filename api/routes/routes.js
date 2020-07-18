@@ -13,11 +13,3 @@
 
 
 
-/*
-
-    const controller = require('../controllers/controllers')();
-  
-    
-    app.route('/car')
-      .post(controller.list);
-      */
