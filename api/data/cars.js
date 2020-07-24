@@ -41,6 +41,20 @@ const cars = [
       },
     ],
   },
+  {
+    placa: "AAA",
+    renavam: "54321",
+    debitos: [
+      {
+        valor: 200,
+        descricao: "multa A",
+      },
+      {
+        valor: 500,
+        descricao: "multa B",
+      },
+    ],
+  }
 ];
 
 // FILTER
